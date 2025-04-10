@@ -10,14 +10,14 @@ from math import sqrt
 
 #Load the clean datasets
 others_df = pd.read_csv("../csv_final_files_used/cleaned_summary_sleep_meal_others.csv")
-stelios_df = pd.read_csv("../csv_final_files_used/cleaned_summary_sleep_meal_x1.csv")
+x1_df = pd.read_csv("../csv_final_files_used/cleaned_summary_sleep_meal_x1.csv")
 
 # Add 'person' to x1 data if missing
-if "person" not in stelios_df.columns:
-    stelios_df["person"] = "Stelios"
+if "person" not in x1_df.columns:
+    x1_df["person"] = "x1"
 
 # Combine datasets
-df = pd.concat([others_df, stelios_df], ignore_index=True)
+df = pd.concat([others_df, x1_df], ignore_index=True)
 
 #Features and target
 features = ["number_of_meals", "avg_meal_interval", "workout", "late_meal"]
